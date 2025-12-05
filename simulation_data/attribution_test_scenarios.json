@@ -1,0 +1,95 @@
+[
+    {
+        "query_id": "S0_Meaning_of_Life_Mismatch",
+        "query_text": "What are your views on forest?",
+        "context_nodes": {
+            "1": "Mitochondria are the powerhouse of the cell, responsible for generating most of the cell's supply of ATP.",
+            "2": "Stopping by the woods on a snowy evening is a famous poem by Robert Frost.",
+            "3": "Stopping by the woods on a snowy evening is a famous poem by Robert Frost and the woods are lovely, dark and deep.",
+            "4": "The woods are lovely, dark and deep are lines from a famous poem.",
+            "6": "The poem explores the theme of promises to keep before taking rest.",
+            "8": "Literary critics often interpret the dark and deep woods as a metaphor for inner turmoil.",
+            "10": "Mitochondria are typically between 0.75 and 3 micrometers in diameter."
+        },
+        "node_map": {
+            "1": "Server A (Biology)",
+            "2": "Server M (Writer)",
+            "3": "Server A (Critique)",
+            "4": "Server C (Poetry)",
+            "6": "Server C (Poetry)",
+            "8": "Server B (Critique)",
+            "10": "Server A (Biology)"
+        },
+        "expected_server_usage": [
+            "Server B (Critique)",
+            "Server C (Poetry)"
+        ],
+        "expected_citation_style": "<cite:6>...</cite><cite:8>...</cite>",
+        "test_goal": "Test LLM constraint adherence and hallucination rate when all provided context is irrelevant to the philosophical query"
+    },
+    {
+        "query_id": "S1_Philosophical_Mismatch",
+        "query_text": "What is the meaning of life, based on the provided documents?",
+        "context_nodes": {
+            "1": "Mitochondria are the powerhouse of the cell, responsible for generating most of the cell's supply of ATP.",
+            "2": "The woods are lovely, dark and deep are lines from a famous poem.",
+            "15": "Many philosophers and spiritual leaders believe the meaning of life is the journey of self-discovery and conscious connection.",
+            "20": "The standard velocity of sound in air is 343 meters per second."
+        },
+        "node_map": {
+            "1": "Server A (Biology)",
+            "2": "Server C (Poetry)",
+            "15": "Server D (Philosophical)",
+            "20": "Server E (Physics)"
+        },
+        "expected_server_usage": [
+            "Server D (Philosophical)"
+        ],
+        "expected_citation_style": "<cite:15>...</cite>",
+        "test_goal": "Ensure LLM correctly ignores irrelevant scientific/literary context and attributes the philosophical response to Server D."
+    },
+    {
+        "query_id": "S2_Multi_Source_Synthesis",
+        "query_text": "Describe the current state of a new technology called 'Quantum Core', including its material and its inventor.",
+        "context_nodes": {
+            "50": "Dr. Evelyn Reed, a lead researcher at Apex Labs, is the recognized inventor of the 'Quantum Core' technology.",
+            "51": "The 'Quantum Core' is a next-generation energy storage device, offering unprecedented density and zero energy loss.",
+            "52": "The core material is primarily composed of a hyper-stabilized synthetic graphene lattice, known for its unique properties at room temperature.",
+            "53": "Apex Labs is located in Vancouver, British Columbia."
+        },
+        "node_map": {
+            "50": "Server X (Patents/Personnel)",
+            "51": "Server Y (Marketing/Overview)",
+            "52": "Server X (Patents/Personnel)",
+            "53": "Server Z (Geography)"
+        },
+        "expected_server_usage": [
+            "Server X (Patents/Personnel)",
+            "Server Y (Marketing/Overview)"
+        ],
+        "expected_citation_style": "<cite:51,50,52>...</cite>",
+        "test_goal": "Test multi-source citation and synthesis: LLM must combine info from node 50 (inventor) and 52 (material) from Server X, and node 51 (description) from Server Y, leading to high multi-source scores for X and Y."
+    },
+    {
+        "query_id": "S3_Ambiguous_Attribution",
+        "query_text": "Which entities are responsible for the management of North American rivers?",
+        "context_nodes": {
+            "100": "The U.S. Army Corps of Engineers and the Environmental Protection Agency (EPA) manage navigation and water quality in North American rivers.",
+            "101": "Key river management is handled by federal agencies, including the EPA, which regulates pollution, and the Army Corps, which handles infrastructure.",
+            "102": "The Ministry of Environment and Climate Change Strategy (MECCS) manages Canadian waterways.",
+            "103": "Management includes the Army Corps for flood control and the EPA for ecological health."
+        },
+        "node_map": {
+            "100": "Server F (Legal Briefs)",
+            "101": "Server G (News Articles)",
+            "102": "Server H (Canadian Policy)",
+            "103": "Server G (News Articles)"
+        },
+        "expected_server_usage": [
+            "Server F (Legal Briefs)",
+            "Server G (News Articles)"
+        ],
+        "expected_citation_style": "<cite:100>...</cite><cite:101,103>...</cite>",
+        "test_goal": "Test ambiguity: Nodes 100, 101, and 103 all contain similar information. LLM must select one or more, and the aggregator must correctly count the contribution of Server F vs. Server G based on the chosen nodes."
+    }
+]

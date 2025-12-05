@@ -1,0 +1,49 @@
+{
+    "setup": {
+        "query_id": "S3_Ambiguous_Attribution",
+        "query_text": "Which entities are responsible for the management of North American rivers?",
+        "context_nodes": {
+            "100": "The U.S. Army Corps of Engineers and the Environmental Protection Agency (EPA) manage navigation and water quality in North American rivers.",
+            "101": "Key river management is handled by federal agencies, including the EPA, which regulates pollution, and the Army Corps, which handles infrastructure.",
+            "102": "The Ministry of Environment and Climate Change Strategy (MECCS) manages Canadian waterways.",
+            "103": "Management includes the Army Corps for flood control and the EPA for ecological health."
+        },
+        "node_map": {
+            "100": "Server F (Legal Briefs)",
+            "101": "Server G (News Articles)",
+            "102": "Server H (Canadian Policy)",
+            "103": "Server G (News Articles)"
+        },
+        "expected_server_usage": [
+            "Server F (Legal Briefs)",
+            "Server G (News Articles)"
+        ],
+        "expected_citation_style": "<cite:100>...</cite><cite:101,103>...</cite>",
+        "test_goal": "Test ambiguity: Nodes 100, 101, and 103 all contain similar information. LLM must select one or more, and the aggregator must correctly count the contribution of Server F vs. Server G based on the chosen nodes."
+    },
+    "result": {
+        "query_id": "S3_Ambiguous_Attribution",
+        "query_text": "Which entities are responsible for the management of North American rivers?",
+        "test_goal": "Test ambiguity: Nodes 100, 101, and 103 all contain similar information. LLM must select one or more, and the aggregator must correctly count the contribution of Server F vs. Server G based on the chosen nodes.",
+        "cited_response": "<cite:100,101,103>In North America, the U.S. Army Corps of Engineers and the Environmental Protection Agency (EPA) are responsible for managing rivers.</cite> <cite:100>The U.S. Army Corps of Engineers manages navigation and handles infrastructure, including flood control.</cite> <cite:100,101,103>The EPA manages water quality, regulates pollution, and is responsible for ecological health.</cite> <cite:102>For Canadian waterways, the Ministry of Environment and Climate Change Strategy (MECCS) is the managing entity.</cite>\n\nSummary:\n<cite:100,101,103>The management of North American rivers involves both the U.S. Army Corps of Engineers and the Environmental Protection Agency (EPA) in the United States.</cite> <cite:102>Canadian waterways are managed by the Ministry of Environment and Climate Change Strategy (MECCS).</cite>\n\nClosure:\n<cite:100,101,103>These agencies collectively address aspects such as navigation, infrastructure, water quality, pollution regulation, and ecological health.</cite>",
+        "contribution_stats": {
+            "Server G (News Articles)": {
+                "total_citations": 4,
+                "multi_source_citations": 4
+            },
+            "Server H (Canadian Policy)": {
+                "total_citations": 4,
+                "multi_source_citations": 0
+            },
+            "Server F (Legal Briefs)": {
+                "total_citations": 6,
+                "multi_source_citations": 4
+            }
+        },
+        "profit_share": {
+            "Server G (News Articles)": 0.3333333333333333,
+            "Server H (Canadian Policy)": 0.2222222222222222,
+            "Server F (Legal Briefs)": 0.4444444444444444
+        }
+    }
+}

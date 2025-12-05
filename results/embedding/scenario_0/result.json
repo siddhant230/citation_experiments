@@ -1,0 +1,65 @@
+{
+    "setup": {
+        "query_id": "S0_Meaning_of_Life_Mismatch",
+        "query_text": "What are your views on forest?",
+        "context_nodes": {
+            "1": "Mitochondria are the powerhouse of the cell, responsible for generating most of the cell's supply of ATP.",
+            "2": "Stopping by the woods on a snowy evening is a famous poem by Robert Frost.",
+            "3": "Stopping by the woods on a snowy evening is a famous poem by Robert Frost and the woods are lovely, dark and deep.",
+            "4": "The woods are lovely, dark and deep are lines from a famous poem.",
+            "6": "The poem explores the theme of promises to keep before taking rest.",
+            "8": "Literary critics often interpret the dark and deep woods as a metaphor for inner turmoil.",
+            "10": "Mitochondria are typically between 0.75 and 3 micrometers in diameter."
+        },
+        "node_map": {
+            "1": "Server A (Biology)",
+            "2": "Server M (Writer)",
+            "3": "Server A (Critique)",
+            "4": "Server C (Poetry)",
+            "6": "Server C (Poetry)",
+            "8": "Server B (Critique)",
+            "10": "Server A (Biology)"
+        },
+        "expected_server_usage": [
+            "Server B (Critique)",
+            "Server C (Poetry)"
+        ],
+        "expected_citation_style": "<cite:6>...</cite><cite:8>...</cite>",
+        "test_goal": "Test LLM constraint adherence and hallucination rate when all provided context is irrelevant to the philosophical query"
+    },
+    "result": {
+        "query_id": "S0_Meaning_of_Life_Mismatch",
+        "query_text": "What are your views on forest?",
+        "test_goal": "Test LLM constraint adherence and hallucination rate when all provided context is irrelevant to the philosophical query",
+        "cited_response": "<cite:4>The woods are described as lovely, </cite>dark and <cite:4>deep in </cite><cite:2>a famous poem by Robert Frost. </cite><cite:8>Literary critics often interpret </cite><cite:4>these dark and deep </cite><cite:8>woods as a metaphor for </cite>inner turmoil.",
+        "contribution_stats": {
+            "Server C (Poetry)": {
+                "total_citations": 6,
+                "multi_source_citations": 0
+            },
+            "Server A (Biology)": {
+                "total_citations": 0,
+                "multi_source_citations": 0
+            },
+            "Server M (Writer)": {
+                "total_citations": 2,
+                "multi_source_citations": 0
+            },
+            "Server B (Critique)": {
+                "total_citations": 4,
+                "multi_source_citations": 0
+            },
+            "Server A (Critique)": {
+                "total_citations": 0,
+                "multi_source_citations": 0
+            }
+        },
+        "profit_share": {
+            "Server C (Poetry)": 0.5,
+            "Server A (Biology)": 0.0,
+            "Server M (Writer)": 0.16666666666666666,
+            "Server B (Critique)": 0.3333333333333333,
+            "Server A (Critique)": 0.0
+        }
+    }
+}

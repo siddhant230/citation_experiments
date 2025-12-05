@@ -1,0 +1,7 @@
+pandas
+dspy
+google-genai
+nltk
+scikit-learn
+sentence-transformers
+torch

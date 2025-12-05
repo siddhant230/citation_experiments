@@ -1,0 +1,53 @@
+{
+    "setup": {
+        "query_id": "S1_Philosophical_Mismatch",
+        "query_text": "What is the meaning of life, based on the provided documents?",
+        "context_nodes": {
+            "1": "Mitochondria are the powerhouse of the cell, responsible for generating most of the cell's supply of ATP.",
+            "2": "The woods are lovely, dark and deep are lines from a famous poem.",
+            "15": "Many philosophers and spiritual leaders believe the meaning of life is the journey of self-discovery and conscious connection.",
+            "20": "The standard velocity of sound in air is 343 meters per second."
+        },
+        "node_map": {
+            "1": "Server A (Biology)",
+            "2": "Server C (Poetry)",
+            "15": "Server D (Philosophical)",
+            "20": "Server E (Physics)"
+        },
+        "expected_server_usage": [
+            "Server D (Philosophical)"
+        ],
+        "expected_citation_style": "<cite:15>...</cite>",
+        "test_goal": "Ensure LLM correctly ignores irrelevant scientific/literary context and attributes the philosophical response to Server D."
+    },
+    "result": {
+        "query_id": "S1_Philosophical_Mismatch",
+        "query_text": "What is the meaning of life, based on the provided documents?",
+        "test_goal": "Ensure LLM correctly ignores irrelevant scientific/literary context and attributes the philosophical response to Server D.",
+        "cited_response": "<cite:15>Many philosophers and spiritual leaders believe the meaning of life is the journey of self-discovery and conscious connection.</cite>\n\n**Summary:**\n<cite:15>The provided documents suggest that the meaning of life is considered by many to be a journey of self-discovery and conscious connection.</cite>\n\n**Closure:**\n<cite:15>This perspective is held by various philosophers and spiritual leaders.</cite>",
+        "contribution_stats": {
+            "Server A (Biology)": {
+                "total_citations": 0,
+                "multi_source_citations": 0
+            },
+            "Server D (Philosophical)": {
+                "total_citations": 6,
+                "multi_source_citations": 0
+            },
+            "Server C (Poetry)": {
+                "total_citations": 0,
+                "multi_source_citations": 0
+            },
+            "Server E (Physics)": {
+                "total_citations": 0,
+                "multi_source_citations": 0
+            }
+        },
+        "profit_share": {
+            "Server A (Biology)": 0.0,
+            "Server D (Philosophical)": 1.0,
+            "Server C (Poetry)": 0.0,
+            "Server E (Physics)": 0.0
+        }
+    }
+}

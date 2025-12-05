@@ -1,0 +1,49 @@
+{
+    "setup": {
+        "query_id": "S2_Multi_Source_Synthesis",
+        "query_text": "Describe the current state of a new technology called 'Quantum Core', including its material and its inventor.",
+        "context_nodes": {
+            "50": "Dr. Evelyn Reed, a lead researcher at Apex Labs, is the recognized inventor of the 'Quantum Core' technology.",
+            "51": "The 'Quantum Core' is a next-generation energy storage device, offering unprecedented density and zero energy loss.",
+            "52": "The core material is primarily composed of a hyper-stabilized synthetic graphene lattice, known for its unique properties at room temperature.",
+            "53": "Apex Labs is located in Vancouver, British Columbia."
+        },
+        "node_map": {
+            "50": "Server X (Patents/Personnel)",
+            "51": "Server Y (Marketing/Overview)",
+            "52": "Server X (Patents/Personnel)",
+            "53": "Server Z (Geography)"
+        },
+        "expected_server_usage": [
+            "Server X (Patents/Personnel)",
+            "Server Y (Marketing/Overview)"
+        ],
+        "expected_citation_style": "<cite:51,50,52>...</cite>",
+        "test_goal": "Test multi-source citation and synthesis: LLM must combine info from node 50 (inventor) and 52 (material) from Server X, and node 51 (description) from Server Y, leading to high multi-source scores for X and Y."
+    },
+    "result": {
+        "query_id": "S2_Multi_Source_Synthesis",
+        "query_text": "Describe the current state of a new technology called 'Quantum Core', including its material and its inventor.",
+        "test_goal": "Test multi-source citation and synthesis: LLM must combine info from node 50 (inventor) and 52 (material) from Server X, and node 51 (description) from Server Y, leading to high multi-source scores for X and Y.",
+        "cited_response": "<cite:51>The Quantum Core is a next-generation energy storage device that offers unprecedented density and zero energy loss. Its core </cite>material is primarily composed <cite:52>of a hyper-stabilized synthetic graphene lattice. </cite>Dr. Evelyn Reed, <cite:53>a lead researcher at Apex Labs, is the recognized </cite>inventor of this technology.",
+        "contribution_stats": {
+            "Server Y (Marketing/Overview)": {
+                "total_citations": 2,
+                "multi_source_citations": 0
+            },
+            "Server Z (Geography)": {
+                "total_citations": 2,
+                "multi_source_citations": 0
+            },
+            "Server X (Patents/Personnel)": {
+                "total_citations": 2,
+                "multi_source_citations": 0
+            }
+        },
+        "profit_share": {
+            "Server Y (Marketing/Overview)": 0.3333333333333333,
+            "Server Z (Geography)": 0.3333333333333333,
+            "Server X (Patents/Personnel)": 0.3333333333333333
+        }
+    }
+}

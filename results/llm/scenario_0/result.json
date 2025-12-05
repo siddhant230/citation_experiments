@@ -1,0 +1,65 @@
+{
+    "setup": {
+        "query_id": "S0_Meaning_of_Life_Mismatch",
+        "query_text": "What are your views on forest?",
+        "context_nodes": {
+            "1": "Mitochondria are the powerhouse of the cell, responsible for generating most of the cell's supply of ATP.",
+            "2": "Stopping by the woods on a snowy evening is a famous poem by Robert Frost.",
+            "3": "Stopping by the woods on a snowy evening is a famous poem by Robert Frost and the woods are lovely, dark and deep.",
+            "4": "The woods are lovely, dark and deep are lines from a famous poem.",
+            "6": "The poem explores the theme of promises to keep before taking rest.",
+            "8": "Literary critics often interpret the dark and deep woods as a metaphor for inner turmoil.",
+            "10": "Mitochondria are typically between 0.75 and 3 micrometers in diameter."
+        },
+        "node_map": {
+            "1": "Server A (Biology)",
+            "2": "Server M (Writer)",
+            "3": "Server A (Critique)",
+            "4": "Server C (Poetry)",
+            "6": "Server C (Poetry)",
+            "8": "Server B (Critique)",
+            "10": "Server A (Biology)"
+        },
+        "expected_server_usage": [
+            "Server B (Critique)",
+            "Server C (Poetry)"
+        ],
+        "expected_citation_style": "<cite:6>...</cite><cite:8>...</cite>",
+        "test_goal": "Test LLM constraint adherence and hallucination rate when all provided context is irrelevant to the philosophical query"
+    },
+    "result": {
+        "query_id": "S0_Meaning_of_Life_Mismatch",
+        "query_text": "What are your views on forest?",
+        "test_goal": "Test LLM constraint adherence and hallucination rate when all provided context is irrelevant to the philosophical query",
+        "cited_response": "<cite:2,3,4>The woods are featured in a famous poem by Robert Frost, titled \"Stopping by the woods on a snowy evening.\"</cite> <cite:3,4>These woods are described as lovely, dark, and deep within the poem.</cite> <cite:6>The poem itself explores the theme of promises to keep before taking rest.</cite> <cite:8>Literary critics often interpret the dark and deep woods as a metaphor for inner turmoil.</cite>\n\n<cite:2,3,4,6,8>In summary, the concept of woods is primarily discussed in the context of Robert Frost's famous poem, \"Stopping by the woods on a snowy evening,\" where they are depicted as lovely, dark, and deep, with symbolic interpretations related to inner turmoil and promises.</cite>\n\n<cite:2,3,4,6,8>This information provides a literary and symbolic understanding of forests, specifically through the lens of this well-known poem.</cite>",
+        "contribution_stats": {
+            "Server M (Writer)": {
+                "total_citations": 3,
+                "multi_source_citations": 3
+            },
+            "Server C (Poetry)": {
+                "total_citations": 6,
+                "multi_source_citations": 4
+            },
+            "Server A (Critique)": {
+                "total_citations": 4,
+                "multi_source_citations": 4
+            },
+            "Server B (Critique)": {
+                "total_citations": 4,
+                "multi_source_citations": 2
+            },
+            "Server A (Biology)": {
+                "total_citations": 0,
+                "multi_source_citations": 0
+            }
+        },
+        "profit_share": {
+            "Server M (Writer)": 0.19148936170212766,
+            "Server C (Poetry)": 0.3404255319148936,
+            "Server A (Critique)": 0.2553191489361702,
+            "Server B (Critique)": 0.2127659574468085,
+            "Server A (Biology)": 0.0
+        }
+    }
+}
