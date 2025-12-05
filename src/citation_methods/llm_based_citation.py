@@ -11,7 +11,7 @@ load_dotenv()
 
 # Fetch the API key
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-MODEL_NAME = "gemini-2.5-flash"
+MODEL_NAME = "gemini/gemini-2.5-flash"
 
 
 # 1. Initialize the Language Model (LLM) using dspy.LM

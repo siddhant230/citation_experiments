@@ -27,6 +27,10 @@
         "test_goal": "Test multi-source citation and synthesis: LLM must combine info from node 50 (inventor) and 52 (material) from Server X, and node 51 (description) from Server Y, leading to high multi-source scores for X and Y.",
         "cited_response": "<cite:51>The 'Quantum Core' is a next-generation energy storage device that provides unprecedented density and zero energy loss.</cite> <cite:52>Its core material consists primarily of a hyper-stabilized synthetic graphene lattice, which is recognized for its unique properties at room temperature.</cite> <cite:50>Dr. Evelyn Reed, a lead researcher at Apex Labs, is recognized as the inventor of this 'Quantum Core' technology.</cite>\n\nSummary: <cite:51>The 'Quantum Core' is an advanced energy storage device characterized by its high density and complete absence of energy loss.</cite> <cite:52>It utilizes a hyper-stabilized synthetic graphene lattice for its core material.</cite> <cite:50>The technology was invented by Dr. Evelyn Reed.</cite>\n\nClosure: <cite:51>This summarizes the key aspects of the 'Quantum Core' technology based on the provided information.</cite>",
         "contribution_stats": {
+            "Server X (Patents/Personnel)": {
+                "total_citations": 8,
+                "multi_source_citations": 0
+            },
             "Server Z (Geography)": {
                 "total_citations": 0,
                 "multi_source_citations": 0
@@ -34,16 +38,12 @@
             "Server Y (Marketing/Overview)": {
                 "total_citations": 6,
                 "multi_source_citations": 0
-            },
-            "Server X (Patents/Personnel)": {
-                "total_citations": 8,
-                "multi_source_citations": 0
             }
         },
         "profit_share": {
+            "Server X (Patents/Personnel)": 0.5714285714285714,
             "Server Z (Geography)": 0.0,
-            "Server Y (Marketing/Overview)": 0.42857142857142855,
-            "Server X (Patents/Personnel)": 0.5714285714285714
+            "Server Y (Marketing/Overview)": 0.42857142857142855
         }
     }
 }

@@ -26,14 +26,6 @@
         "test_goal": "Ensure LLM correctly ignores irrelevant scientific/literary context and attributes the philosophical response to Server D.",
         "cited_response": "<cite:15>Many philosophers and spiritual leaders believe the meaning of life is the journey of self-discovery and conscious connection.</cite>\n\n**Summary:**\n<cite:15>The provided documents suggest that the meaning of life is considered by many to be a journey of self-discovery and conscious connection.</cite>\n\n**Closure:**\n<cite:15>This perspective is held by various philosophers and spiritual leaders.</cite>",
         "contribution_stats": {
-            "Server A (Biology)": {
-                "total_citations": 0,
-                "multi_source_citations": 0
-            },
-            "Server D (Philosophical)": {
-                "total_citations": 6,
-                "multi_source_citations": 0
-            },
             "Server C (Poetry)": {
                 "total_citations": 0,
                 "multi_source_citations": 0
@@ -41,13 +33,21 @@
             "Server E (Physics)": {
                 "total_citations": 0,
                 "multi_source_citations": 0
+            },
+            "Server A (Biology)": {
+                "total_citations": 0,
+                "multi_source_citations": 0
+            },
+            "Server D (Philosophical)": {
+                "total_citations": 6,
+                "multi_source_citations": 0
             }
         },
         "profit_share": {
-            "Server A (Biology)": 0.0,
-            "Server D (Philosophical)": 1.0,
             "Server C (Poetry)": 0.0,
-            "Server E (Physics)": 0.0
+            "Server E (Physics)": 0.0,
+            "Server A (Biology)": 0.0,
+            "Server D (Philosophical)": 1.0
         }
     }
 }
